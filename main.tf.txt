@@ -1,0 +1,21 @@
+terraform {
+  required_version = ">= 0.12"
+}
+
+provider "aws" {
+access_key = "var.aws_access_key"
+secret_key = "var.aws_secret_key"
+region =var.aws_region
+}
+
+/*
+Test server to test connecvity
+*/
+resource "aws_instance" "Web" {
+  ami = "ami-016b213e65284e9c9"
+  instance_type = "t2.micro"
+
+tags ={
+        Name = "PHE Server"
+    }
+}
